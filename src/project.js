@@ -1016,6 +1016,10 @@ window.__require = function e(t, n, o) {
             scale: 1.1
           }).to(.5, {
             scale: 1
+          }).union().repeatForever().start(), cc.tween(this.adsButton2).to(1, {
+            scale: .8
+          }).to(1, {
+            scale: .9
           }).union().repeatForever().start()
         }, t.prototype.update = function (e) {
         }, t.prototype.adsButtonFunc2 = function () {
@@ -1041,6 +1045,10 @@ window.__require = function e(t, n, o) {
           this.failedUiBox.runAction(cc.moveTo(.3, e).easing(cc.easeBackIn()))
         }, t.prototype.OnClickCloseMask = function () {
           this.canClick && 0 == cc.find("Canvas/uiEffectPanel").childrenCount && a.default.Instance.RestartGame()
+        }, t.prototype.OnClickMoreGame = function () {
+          this.canClick && (this.moreGameBtn.off(cc.Node.EventType.TOUCH_START, this.OnClickMoreGame, this), this.canClick = !1, this.moreGameBtn.runAction(cc.sequence(cc.scaleTo(.1, 1.1), cc.scaleTo(.1, 1))), this.scheduleOnce(function () {
+            window.location.href = "http://m.wesane.com/"
+          }, .15))
         }, t.prototype.GetContentByScore = function (e) {
           var t = Math.ceil(e / 1500 * 94);
           t > 94 && (t = 94);
